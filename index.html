@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>劃火柴 — 陳曉東粵語作品 Credits</title>
+<meta name="theme-color" content="#C4A265">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="劃火柴">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#F5F0E8;--bg-card:#FDFBF7;--bg-card-hover:#FAF6EE;
+  --text-primary:#3D3228;--text-secondary:#7A6E62;--text-muted:#A89B8C;
+  --accent:#C4A265;--accent-light:#E8D5B0;--accent-subtle:#F0E6D2;
+  --border:#E5DDD0;--border-light:#EDE7DB;
+  --tag-lyrics:#C4A265;--tag-compose:#9B8A6E;--tag-arrange:#7A8B6E;--tag-produce:#6E7E8B;
+  --radius:10px
+}
+html{font-size:16px}
+body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);color:var(--text-primary);line-height:1.6;min-height:100dvh;-webkit-font-smoothing:antialiased}
+#root{max-width:480px;margin:0 auto;padding-bottom:80px}
+.header{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,var(--bg) 85%,transparent);padding:16px 16px 12px}
+.header-title{font-family:'Noto Serif TC',serif;font-size:1.35rem;font-weight:700;letter-spacing:.03em;margin-bottom:10px}
+.header-subtitle{font-size:.75rem;color:var(--text-muted);font-weight:300;margin-top:2px}
+.search-wrap{position:relative;margin-bottom:10px}
+.search-input{width:100%;padding:10px 14px 10px 38px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-card);font-size:.9rem;font-family:inherit;color:var(--text-primary);outline:none;transition:border-color .2s}
+.search-input:focus{border-color:var(--accent)}
+.search-input::placeholder{color:var(--text-muted)}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:.9rem;pointer-events:none}
+.search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);font-size:1.1rem;cursor:pointer;padding:4px;display:none}
+.search-clear.show{display:block}
+.tabs{display:flex;gap:0;background:var(--bg-card);border-radius:var(--radius);padding:3px;border:1px solid var(--border-light)}
+.tab{flex:1;padding:8px 0;text-align:center;font-size:.78rem;font-weight:500;color:var(--text-secondary);border:none;background:transparent;border-radius:8px;cursor:pointer;transition:all .2s;font-family:inherit}
+.tab.active{background:var(--accent);color:#fff;font-weight:600}
+.content{padding:0 16px;margin-top:8px}
+.album-group{margin-bottom:12px}
+.album-header{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);cursor:pointer;transition:all .15s;-webkit-user-select:none;user-select:none}
+.album-header:active{background:var(--bg-card-hover)}
+.album-year{font-family:'Noto Serif TC',serif;font-size:.78rem;color:var(--accent);font-weight:600;min-width:36px}
+.album-name{flex:1;font-weight:600;font-size:.92rem}
+.album-count{font-size:.75rem;color:var(--text-muted)}
+.album-chevron{font-size:.7rem;color:var(--text-muted);transition:transform .2s}
+.album-chevron.open{transform:rotate(90deg)}
+.album-songs{overflow:hidden;transition:max-height .3s ease;max-height:0}
+.album-songs.open{max-height:5000px}
+.album-songs-inner{padding:4px 0}
+.song-item{border-left:2px solid var(--border-light);margin-left:24px}
+.song-header{display:flex;align-items:center;gap:8px;padding:10px 12px 10px 14px;cursor:pointer;transition:background .15s;-webkit-user-select:none;user-select:none}
+.song-header:active{background:var(--accent-subtle)}
+.song-name{flex:1;font-size:.88rem;font-weight:400}
+.song-badge{font-size:.65rem;color:var(--accent);background:var(--accent-subtle);padding:2px 6px;border-radius:3px;white-space:nowrap}
+.song-chevron{font-size:.6rem;color:var(--text-muted);transition:transform .2s}
+.song-chevron.open{transform:rotate(90deg)}
+.song-detail{overflow:hidden;max-height:0;transition:max-height .25s ease}
+.song-detail.open{max-height:400px}
+.song-detail-inner{padding:4px 14px 14px 14px}
+.credit-row{display:flex;align-items:baseline;padding:4px 0;font-size:.82rem;gap:8px}
+.credit-label{color:var(--text-muted);min-width:32px;font-size:.75rem;flex-shrink:0}
+.credit-value{color:var(--text-primary)}
+.credit-name-link{color:var(--text-primary);text-decoration:none;border-bottom:1px dotted var(--accent-light);cursor:pointer;transition:color .15s,border-color .15s}
+.credit-name-link:active{color:var(--accent);border-color:var(--accent)}
+.song-note{margin-top:6px;font-size:.75rem;color:var(--text-muted);font-style:italic;padding-left:40px}
+.person-item{padding:12px 14px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);margin-bottom:8px;cursor:pointer;transition:all .15s;-webkit-user-select:none;user-select:none}
+.person-item:active{background:var(--bg-card-hover)}
+.person-name{font-weight:600;font-size:.92rem;margin-bottom:4px}
+.person-roles{display:flex;flex-wrap:wrap;gap:4px}
+.role-tag{font-size:.7rem;padding:2px 7px;border-radius:3px;font-weight:500;color:#fff}
+.role-tag.lyrics{background:var(--tag-lyrics)}
+.role-tag.compose{background:var(--tag-compose)}
+.role-tag.arrange{background:var(--tag-arrange)}
+.role-tag.produce{background:var(--tag-produce)}
+.person-back{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--accent);background:none;border:none;cursor:pointer;padding:8px 0;margin-bottom:4px;font-family:inherit}
+.person-detail-name{font-family:'Noto Serif TC',serif;font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.person-detail-stats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.person-song-group{margin-bottom:14px}
+.person-song-group-title{font-size:.78rem;color:var(--text-muted);font-weight:500;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid var(--border-light)}
+.person-song-entry{border-bottom:1px solid var(--border-light)}
+.person-song-entry:last-child{border-bottom:none}
+.pse-header{display:flex;align-items:center;gap:6px;padding:8px 0;cursor:pointer;-webkit-user-select:none;user-select:none}
+.pse-header:active{opacity:.7}
+.pse-title{flex:1;font-size:.88rem;font-weight:500}
+.pse-chevron{font-size:.55rem;color:var(--text-muted);transition:transform .2s}
+.pse-chevron.open{transform:rotate(90deg)}
+.pse-detail{overflow:hidden;max-height:0;transition:max-height .25s ease}
+.pse-detail.open{max-height:300px}
+.pse-detail-inner{padding:0 0 8px 0}
+.role-tag-sm{font-size:.6rem;padding:1px 5px;border-radius:2px;font-weight:500;color:#fff}
+.role-tag-sm.lyrics{background:var(--tag-lyrics)}
+.role-tag-sm.compose{background:var(--tag-compose)}
+.role-tag-sm.arrange{background:var(--tag-arrange)}
+.role-tag-sm.produce{background:var(--tag-produce)}
+.search-results-label{font-size:.78rem;color:var(--text-muted);padding:4px 0 8px}
+.search-song-item{padding:10px 14px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);margin-bottom:8px}
+.search-song-name{font-weight:600;font-size:.9rem;margin-bottom:2px}
+.search-song-album{font-size:.75rem;color:var(--text-secondary);margin-bottom:6px}
+.empty-state{text-align:center;padding:40px 20px;color:var(--text-muted);font-size:.88rem}
+.sort-toggle{display:flex;align-items:center;justify-content:flex-end;gap:6px;padding:4px 0 8px}
+.sort-btn{font-size:.72rem;color:var(--text-muted);background:none;border:1px solid var(--border-light);border-radius:4px;padding:3px 8px;cursor:pointer;font-family:inherit;transition:all .15s}
+.sort-btn.active{color:var(--accent);border-color:var(--accent);background:var(--accent-subtle)}
+
+/* Cross query */
+.cross-section{margin-bottom:14px}
+.cross-label{font-size:.78rem;color:var(--text-muted);margin-bottom:8px;font-weight:500;display:flex;align-items:center;gap:6px}
+.cross-label-sel{font-size:.78rem;color:var(--accent);font-weight:600}
+.chip-pool{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius)}
+.chip{padding:5px 10px;border-radius:20px;font-size:.76rem;font-weight:500;border:1px solid var(--border);background:transparent;color:var(--text-secondary);cursor:pointer;transition:all .15s;font-family:inherit;-webkit-user-select:none;user-select:none;white-space:nowrap}
+.chip:active{transform:scale(.96)}
+.chip.sel-lyrics{background:var(--tag-lyrics);color:#fff;border-color:var(--tag-lyrics)}
+.chip.sel-compose{background:var(--tag-compose);color:#fff;border-color:var(--tag-compose)}
+.chip .chip-count{font-size:.65rem;opacity:.7;margin-left:2px}
+.chip-others{border-style:dashed;color:var(--text-muted)}
+.chip-others-open{background:var(--accent-subtle);border-style:solid;color:var(--text-secondary)}
+.cross-divider{height:1px;background:var(--border-light);margin:4px 0 14px}
+.cross-results-header{font-size:.82rem;color:var(--text-secondary);padding:8px 0;font-weight:500}
+.cross-result-item{padding:10px 14px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);margin-bottom:8px;cursor:pointer;-webkit-user-select:none;user-select:none}
+.cross-result-item:active{background:var(--bg-card-hover)}
+.cross-song-name{font-weight:600;font-size:.9rem;margin-bottom:2px}
+.cross-song-album{font-size:.75rem;color:var(--text-secondary)}
+.cross-detail{overflow:hidden;max-height:0;transition:max-height .25s ease}
+.cross-detail.open{max-height:300px}
+.cross-hint{text-align:center;padding:30px 20px;color:var(--text-muted);font-size:.82rem;line-height:1.8}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script>
+const T2S={"亂":"乱","亞":"亚","佔":"占","來":"来","個":"个","們":"们","偉":"伟","傑":"杰","傳":"传","凍":"冻","凱":"凯","別":"别","劃":"划","劇":"剧","劉":"刘","劍":"剑","動":"动","務":"务","協":"协","吳":"吴","呂":"吕","喬":"乔","單":"单","國":"国","場":"场","塵":"尘","壽":"寿","夢":"梦","娛":"娱","嫻":"娴","孫":"孙","實":"实","寧":"宁","專":"专","尋":"寻","對":"对","師":"师","帶":"带","幾":"几","廂":"厢","廣":"广","張":"张","強":"强","彥":"彦","後":"后","從":"从","愛":"爱","慶":"庆","懷":"怀","戀":"恋","戲":"戏","揚":"扬","擁":"拥","擋":"挡","擠":"挤","攜":"携","時":"时","曉":"晓","書":"书","會":"会","東":"东","楊":"杨","樂":"乐","樑":"梁","樣":"样","樹":"树","橋":"桥","機":"机","櫻":"樱","權":"权","歐":"欧","歡":"欢","氣":"气","沒":"没","溫":"温","漢":"汉","澤":"泽","濱":"滨","為":"为","無":"无","燒":"烧","爾":"尔","畫":"画","盧":"卢","眾":"众","禮":"礼","種":"种","穎":"颖","窮":"穷","箏":"筝","簡":"简","粵":"粤","紀":"纪","約":"约","純":"纯","細":"细","結":"结","絕":"绝","維":"维","線":"线","編":"编","羅":"罗","義":"义","聰":"聪","聽":"听","脈":"脉","臨":"临","與":"与","興":"兴","華":"华","萬":"万","葉":"叶","蒼":"苍","蕭":"萧","蘇":"苏","視":"视","覺":"觉","觸":"触","記":"记","詠":"咏","語":"语","說":"说","請":"请","諾":"诺","謙":"谦","講":"讲","謝":"谢","證":"证","譚":"谭","變":"变","讓":"让","豐":"丰","貫":"贯","賢":"贤","賣":"卖","質":"质","賴":"赖","贏":"赢","趙":"赵","車":"车","軍":"军","輝":"辉","輩":"辈","這":"这","週":"周","遊":"游","運":"运","達":"达","遠":"远","選":"选","邊":"边","鄧":"邓","鄭":"郑","銘":"铭","錕":"锟","鍾":"钟","鎮":"镇","門":"门","閃":"闪","開":"开","間":"间","陳":"陈","陽":"阳","雋":"隽","雙":"双","難":"难","電":"电","霑":"沾","靈":"灵","韜":"韬","頌":"颂","領":"领","題":"题","顧":"顾","風":"风","飛":"飞","馮":"冯","駿":"骏","驗":"验","鳳":"凤","鳴":"鸣","鴻":"鸿","鷹":"鹰","麼":"么","黃":"黄","點":"点","龍":"龙","龐":"庞"};
+const S2T={"乱":"亂","亚":"亞","占":"佔","来":"來","个":"個","们":"們","伟":"偉","杰":"傑","传":"傳","冻":"凍","凯":"凱","别":"別","划":"劃","剧":"劇","刘":"劉","剑":"劍","动":"動","务":"務","协":"協","吴":"吳","吕":"呂","乔":"喬","单":"單","国":"國","场":"場","尘":"塵","寿":"壽","梦":"夢","娱":"娛","娴":"嫻","孙":"孫","实":"實","宁":"寧","专":"專","寻":"尋","对":"對","师":"師","带":"帶","几":"幾","厢":"廂","广":"廣","张":"張","强":"強","彦":"彥","后":"後","从":"從","爱":"愛","庆":"慶","怀":"懷","恋":"戀","戏":"戲","扬":"揚","拥":"擁","挡":"擋","挤":"擠","携":"攜","时":"時","晓":"曉","书":"書","会":"會","东":"東","杨":"楊","乐":"樂","梁":"樑","样":"樣","树":"樹","桥":"橋","机":"機","樱":"櫻","权":"權","欧":"歐","欢":"歡","气":"氣","没":"沒","温":"溫","汉":"漢","泽":"澤","滨":"濱","为":"為","无":"無","烧":"燒","尔":"爾","画":"畫","卢":"盧","众":"眾","礼":"禮","种":"種","颖":"穎","穷":"窮","筝":"箏","简":"簡","粤":"粵","纪":"紀","约":"約","纯":"純","细":"細","结":"結","绝":"絕","维":"維","线":"線","编":"編","罗":"羅","义":"義","聪":"聰","听":"聽","脉":"脈","临":"臨","与":"與","兴":"興","华":"華","万":"萬","叶":"葉","苍":"蒼","萧":"蕭","苏":"蘇","视":"視","觉":"覺","触":"觸","记":"記","咏":"詠","语":"語","说":"說","请":"請","诺":"諾","谦":"謙","讲":"講","谢":"謝","证":"證","谭":"譚","变":"變","让":"讓","丰":"豐","贯":"貫","贤":"賢","卖":"賣","质":"質","赖":"賴","赢":"贏","赵":"趙","车":"車","军":"軍","辉":"輝","辈":"輩","这":"這","周":"週","游":"遊","运":"運","达":"達","远":"遠","选":"選","边":"邊","邓":"鄧","郑":"鄭","铭":"銘","锟":"錕","钟":"鍾","镇":"鎮","门":"門","闪":"閃","开":"開","间":"間","陈":"陳","阳":"陽","隽":"雋","双":"雙","难":"難","电":"電","沾":"霑","灵":"靈","韬":"韜","颂":"頌","领":"領","题":"題","顾":"顧","风":"風","飞":"飛","冯":"馮","骏":"駿","验":"驗","凤":"鳳","鸣":"鳴","鸿":"鴻","鹰":"鷹","么":"麼","黄":"黃","点":"點","龙":"龍","庞":"龐"};
+
+function toSimp(s){return s.split('').map(c=>T2S[c]||c).join('')}
+function normalize(s){return toSimp(s).toLowerCase()}
+function fuzzyMatch(t,q){return normalize(t).includes(normalize(q))}
+
+// Alias map: merge alternate names
+const NAME_ALIASES = {"小林":"林若寧"};
+function canonName(n) { return NAME_ALIASES[n] || n; }
+
+const DATA=[{"歌曲名稱": "與我高飛", "演唱者": "陳曉東", "專輯": "與我高飛", "年份": 1995, "語言": "粵語", "填詞": "簡寧", "作曲": "楊孝芬", "編曲": "張兆鴻", "監製": "陳劍和、何漢明", "備註": "第二主打"}, {"歌曲名稱": "難忘你這夜心情", "演唱者": "陳曉東", "專輯": "與我高飛", "年份": 1995, "語言": "粵語", "填詞": "向雪懷", "作曲": "陳子鴻", "編曲": "王雙駿", "監製": "陳劍和、何漢明", "備註": "第一主打"}, {"歌曲名稱": "正在愛", "演唱者": "陳曉東", "專輯": "與我高飛", "年份": 1995, "語言": "粵語", "填詞": "潘偉源", "作曲": "櫻井和壽", "編曲": "楊振龍", "監製": "陳劍和、楊振龍", "備註": "改編自Mr.Children"}, {"歌曲名稱": "無名份的愛", "演唱者": "陳曉東", "專輯": "與我高飛", "年份": 1995, "語言": "粵語", "填詞": "周禮茂", "作曲": "岩崎元是", "編曲": "袁卓繁", "監製": "陳劍和、何漢明", "備註": ""}, {"歌曲名稱": "一次真愛追尋一百次", "演唱者": "陳曉東", "專輯": "與我高飛", "年份": 1995, "語言": "粵語", "填詞": "因葵", "作曲": "劉志遠", "編曲": "劉志遠", "監製": "陳劍和、何漢明", "備註": "尼泊爾追尋一百次版"}, {"歌曲名稱": "GO! GO!", "演唱者": "陳曉東", "專輯": "與我高飛", "年份": 1995, "語言": "粵語", "填詞": "潘偉源", "作曲": "Nobody", "編曲": "楊振龍", "監製": "陳劍和、楊振龍", "備註": "改編自SHOW-YA"}, {"歌曲名稱": "臨別看你一眼", "演唱者": "陳曉東", "專輯": "與我高飛", "年份": 1995, "語言": "粵語", "填詞": "陳少琪", "作曲": "林明陽", "編曲": "張兆鴻", "監製": "陳劍和、何漢明", "備註": ""}, {"歌曲名稱": "純真色彩", "演唱者": "陳曉東", "專輯": "與我高飛", "年份": 1995, "語言": "粵語", "填詞": "簡寧", "作曲": "楊振龍", "編曲": "楊振龍、王雙駿", "監製": "陳劍和、何漢明", "備註": ""}, {"歌曲名稱": "夢想實驗室", "演唱者": "陳曉東", "專輯": "與我高飛", "年份": 1995, "語言": "粵語", "填詞": "細雪", "作曲": "小豐", "編曲": "小豐", "監製": "陳劍和、何漢明", "備註": "《閃電傳真機》主題曲"}, {"歌曲名稱": "你有你意思", "演唱者": "陳曉東", "專輯": "與我高飛", "年份": 1995, "語言": "粵語", "填詞": "向雪懷", "作曲": "Jim Jacobsen、John Holliday、Trevor Steele", "編曲": "方樹樑", "監製": "陳劍和、何漢明", "備註": ""}, {"歌曲名稱": "第一份感情", "演唱者": "陳曉東", "專輯": "與我高飛", "年份": 1995, "語言": "粵語", "填詞": "向雪懷", "作曲": "楊振龍", "編曲": "楊振龍、王雙駿", "監製": "楊振龍、黃祖輝", "備註": ""}, {"歌曲名稱": "了解你的所有", "演唱者": "陳曉東", "專輯": "了解你的所有", "年份": 1996, "語言": "粵語", "填詞": "陳少琪", "作曲": "Steve Dorff、Milton Brown", "編曲": "方樹樑", "監製": "方樹樑", "備註": "第一主打"}, {"歌曲名稱": "風吹草動", "演唱者": "陳曉東", "專輯": "了解你的所有", "年份": 1996, "語言": "粵語", "填詞": "陳少琪", "作曲": "梁志成", "編曲": "垣英", "監製": "方樹樑", "備註": "第三主打"}, {"歌曲名稱": "愛上你之後", "演唱者": "陳曉東", "專輯": "了解你的所有", "年份": 1996, "語言": "粵語", "填詞": "陳震雄", "作曲": "陳震雄", "編曲": "方樹樑", "監製": "方樹樑", "備註": "第二主打"}, {"歌曲名稱": "不安的快樂", "演唱者": "陳曉東", "專輯": "了解你的所有", "年份": 1996, "語言": "粵語", "填詞": "林夕", "作曲": "劉志遠", "編曲": "劉志遠", "監製": "何國禧", "備註": ""}, {"歌曲名稱": "別去的天空", "演唱者": "陳曉東", "專輯": "了解你的所有", "年份": 1996, "語言": "粵語", "填詞": "簡寧", "作曲": "Pelle Nylen、Roy Colgate", "編曲": "方樹樑", "監製": "方樹樑", "備註": ""}, {"歌曲名稱": "勇敢", "演唱者": "陳曉東", "專輯": "了解你的所有", "年份": 1996, "語言": "粵語", "填詞": "陳少琪", "作曲": "盧東尼", "編曲": "盧東尼", "監製": "何國禧", "備註": ""}, {"歌曲名稱": "在這清晨", "演唱者": "陳曉東", "專輯": "了解你的所有", "年份": 1996, "語言": "粵語", "填詞": "向雪懷", "作曲": "梁邦彥", "編曲": "張兆鴻", "監製": "何國禧", "備註": ""}, {"歌曲名稱": "請你想起我", "演唱者": "陳曉東", "專輯": "了解你的所有", "年份": 1996, "語言": "粵語", "填詞": "張美賢", "作曲": "E. Ramazzotti、P. Cassano、A. Cogliati", "編曲": "陳嘉樂", "監製": "方樹樑", "備註": ""}, {"歌曲名稱": "溫暖的家", "演唱者": "陳曉東", "專輯": "了解你的所有", "年份": 1996, "語言": "粵語", "填詞": "向雪懷", "作曲": "垣英", "編曲": "鍾世英、垣英", "監製": "方樹樑", "備註": "房屋署之歌"}, {"歌曲名稱": "在乎你感受", "演唱者": "陳曉東", "專輯": "在乎你感受", "年份": 1997, "語言": "粵語", "填詞": "陳少琪", "作曲": "唐奕聰", "編曲": "唐奕聰", "監製": "陳永明", "備註": "第一主打；星晨旅遊廣告主題曲"}, {"歌曲名稱": "猜猜猜", "演唱者": "陳曉東", "專輯": "在乎你感受", "年份": 1997, "語言": "粵語", "填詞": "向雪懷", "作曲": "陳美鳳", "編曲": "陳美鳳", "監製": "陳永明", "備註": "第二主打；電影《初戀無限Touch》主題曲"}, {"歌曲名稱": "特權份子", "演唱者": "陳曉東", "專輯": "在乎你感受", "年份": 1997, "語言": "粵語", "填詞": "黃偉文", "作曲": "方樹樑", "編曲": "方樹樑", "監製": "方樹樑", "備註": ""}, {"歌曲名稱": "白日夢", "演唱者": "陳曉東", "專輯": "在乎你感受", "年份": 1997, "語言": "粵語", "填詞": "馮正", "作曲": "馮正", "編曲": "方樹樑", "監製": "方樹樑", "備註": ""}, {"歌曲名稱": "心理遊戲", "演唱者": "陳曉東", "專輯": "心理遊戲", "年份": 1997, "語言": "粵語", "填詞": "黃偉文", "作曲": "方樹樑", "編曲": "方樹樑", "監製": "方樹樑", "備註": "第一主打；三台冠軍歌"}, {"歌曲名稱": "甚麼吸引", "演唱者": "陳曉東", "專輯": "心理遊戲", "年份": 1997, "語言": "粵語", "填詞": "林夕", "作曲": "方樹樑", "編曲": "方樹樑", "監製": "方樹樑", "備註": "第二主打"}, {"歌曲名稱": "迷魂", "演唱者": "陳曉東", "專輯": "心理遊戲", "年份": 1997, "語言": "粵語", "填詞": "陳少琪", "作曲": "方樹樑", "編曲": "方樹樑", "監製": "方樹樑", "備註": ""}, {"歌曲名稱": "沒線風箏", "演唱者": "陳曉東", "專輯": "心理遊戲", "年份": 1997, "語言": "粵語", "填詞": "向雪懷", "作曲": "方樹樑", "編曲": "方樹樑", "監製": "方樹樑", "備註": ""}, {"歌曲名稱": "三個字", "演唱者": "陳曉東", "專輯": "心理遊戲", "年份": 1997, "語言": "粵語", "填詞": "李敏", "作曲": "Barry Chung", "編曲": "唐奕聰", "監製": "陳永明", "備註": ""}, {"歌曲名稱": "下輩子的事", "演唱者": "陳曉東", "專輯": "心理遊戲", "年份": 1997, "語言": "粵語", "填詞": "因葵", "作曲": "陳輝陽", "編曲": "陳輝陽", "監製": "陳永明", "備註": ""}, {"歌曲名稱": "感情豐富", "演唱者": "陳曉東", "專輯": "心理遊戲", "年份": 1997, "語言": "粵語", "填詞": "向雪懷", "作曲": "陳尊權", "編曲": "陳永明", "監製": "陳永明", "備註": ""}, {"歌曲名稱": "擠迫", "演唱者": "陳曉東", "專輯": "心理遊戲", "年份": 1997, "語言": "粵語", "填詞": "陳少琪", "作曲": "唐奕聰", "編曲": "唐奕聰", "監製": "陳永明", "備註": ""}, {"歌曲名稱": "攜着你走出門外", "演唱者": "陳曉東", "專輯": "心理遊戲", "年份": 1997, "語言": "粵語", "填詞": "向雪懷", "作曲": "陳曉東", "編曲": "陳美鳳", "監製": "陳永明", "備註": ""}, {"歌曲名稱": "急凍心靈", "演唱者": "陳曉東", "專輯": "心的接觸", "年份": 1997, "語言": "粵語", "填詞": "陳少琪", "作曲": "譚國政", "編曲": "譚國政", "監製": "譚國政", "備註": "第二主打"}, {"歌曲名稱": "心的接觸", "演唱者": "陳曉東", "專輯": "心的接觸", "年份": 1997, "語言": "粵語", "填詞": "陳少琪", "作曲": "方樹樑", "編曲": "方樹樑", "監製": "方樹樑", "備註": "第一主打"}, {"歌曲名稱": "一萬年", "演唱者": "陳曉東", "專輯": "心的接觸", "年份": 1997, "語言": "粵語", "填詞": "陳少琪", "作曲": "John Laudon", "編曲": "John Laudon", "監製": "陳永明", "備註": "第三主打"}, {"歌曲名稱": "佔領", "演唱者": "陳曉東", "專輯": "心的接觸", "年份": 1997, "語言": "粵語", "填詞": "陳少琪", "作曲": "方樹樑", "編曲": "方樹樑", "監製": "方樹樑", "備註": "第四主打"}, {"歌曲名稱": "最佳聽眾", "演唱者": "陳曉東", "專輯": "心的接觸", "年份": 1997, "語言": "粵語", "填詞": "古倩敏", "作曲": "古倩敏", "編曲": "陳永明", "監製": "陳永明", "備註": ""}, {"歌曲名稱": "從深海中到外太空", "演唱者": "陳曉東", "專輯": "心的接觸", "年份": 1997, "語言": "粵語", "填詞": "因葵", "作曲": "Barry Chung", "編曲": "劉祖德、林子揚", "監製": "陳永明", "備註": ""}, {"歌曲名稱": "等着你開口", "演唱者": "陳曉東", "專輯": "心的接觸", "年份": 1997, "語言": "粵語", "填詞": "鄭鳴", "作曲": "陳國華", "編曲": "方樹樑", "監製": "方樹樑", "備註": ""}, {"歌曲名稱": "你想要的", "演唱者": "陳曉東", "專輯": "心的接觸", "年份": 1997, "語言": "粵語", "填詞": "向雪懷", "作曲": "黃偉年", "編曲": "黃偉年", "監製": "陳永明", "備註": ""}, {"歌曲名稱": "心理遊戲 (Psychedelic Remix)", "演唱者": "陳曉東", "專輯": "心的接觸", "年份": 1997, "語言": "粵語", "填詞": "黃偉文", "作曲": "方樹樑", "編曲": "方樹樑", "監製": "方樹樑", "備註": "Remix"}, {"歌曲名稱": "新歡加精選", "演唱者": "陳曉東", "專輯": "Holiday", "年份": 1998, "語言": "粵語", "填詞": "林夕", "作曲": "黃尚偉", "編曲": "黃尚偉", "監製": "黃尚偉", "備註": "第一主打"}, {"歌曲名稱": "講一次", "演唱者": "陳曉東", "專輯": "Holiday", "年份": 1998, "語言": "粵語", "填詞": "梁芷珊", "作曲": "黃尚偉", "編曲": "黃尚偉", "監製": "黃尚偉", "備註": ""}, {"歌曲名稱": "水瓶座", "演唱者": "陳曉東", "專輯": "Holiday", "年份": 1998, "語言": "粵語", "填詞": "黃偉文", "作曲": "黃尚偉", "編曲": "黃尚偉", "監製": "黃尚偉", "備註": "第二主打"}, {"歌曲名稱": "叫我", "演唱者": "陳曉東", "專輯": "Holiday", "年份": 1998, "語言": "粵語", "填詞": "林夕", "作曲": "黃尚偉", "編曲": "黃尚偉", "監製": "黃尚偉", "備註": "第四主打"}, {"歌曲名稱": "Holiday", "演唱者": "陳曉東", "專輯": "Holiday", "年份": 1998, "語言": "粵語", "填詞": "陳少琪", "作曲": "黃尚偉", "編曲": "黃尚偉", "監製": "黃尚偉", "備註": "第四主打"}, {"歌曲名稱": "下次請早", "演唱者": "陳曉東", "專輯": "Holiday", "年份": 1998, "語言": "粵語", "填詞": "林夕", "作曲": "黃尚偉", "編曲": "黃尚偉", "監製": "黃尚偉", "備註": ""}, {"歌曲名稱": "難以形容", "演唱者": "陳曉東", "專輯": "Holiday", "年份": 1998, "語言": "粵語", "填詞": "陳少琪", "作曲": "李伯健", "編曲": "鍾世英", "監製": "方樹樑", "備註": ""}, {"歌曲名稱": "一個人", "演唱者": "陳曉東", "專輯": "Holiday", "年份": 1998, "語言": "粵語", "填詞": "林夕", "作曲": "黃尚偉", "編曲": "黃尚偉", "監製": "黃尚偉", "備註": "第三主打"}, {"歌曲名稱": "巨人", "演唱者": "陳曉東", "專輯": "Holiday", "年份": 1998, "語言": "粵語", "填詞": "鄭雋詠", "作曲": "伍仲衡", "編曲": "鍾世英", "監製": "楊喬興", "備註": "敬師運動主題曲"}, {"歌曲名稱": "結他", "演唱者": "陳曉東", "專輯": "U R My Only Love", "年份": 1998, "語言": "粵語", "填詞": "陳少琪", "作曲": "方樹樑", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "不一樣的眼睛", "演唱者": "陳曉東", "專輯": "U R My Only Love", "年份": 1998, "語言": "粵語", "填詞": "林振強", "作曲": "方樹樑", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "車尾廂", "演唱者": "陳曉東", "專輯": "U R My Only Love", "年份": 1998, "語言": "粵語", "填詞": "向雪懷", "作曲": "方樹樑", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "天生一對", "演唱者": "陳曉東", "專輯": "U R My Only Love", "年份": 1998, "語言": "粵語", "填詞": "簡寧", "作曲": "戴思聰", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "今天開始", "演唱者": "陳曉東", "專輯": "U R My Only Love", "年份": 1998, "語言": "粵語", "填詞": "向雪懷", "作曲": "盧東尼", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "愛你(躲你)", "演唱者": "陳曉東", "專輯": "U R My Only Love", "年份": 1998, "語言": "粵語", "填詞": "鄭雋詠", "作曲": "伍仲衡", "編曲": "", "監製": "陳永明", "備註": ""}, {"歌曲名稱": "U R My O Luv", "演唱者": "陳曉東", "專輯": "U R My Only Love", "年份": 1998, "語言": "粵語", "填詞": "張美賢", "作曲": "陳輝陽", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "愛是無絕對", "演唱者": "陳曉東", "專輯": "U R My Only Love", "年份": 1998, "語言": "粵語", "填詞": "小劉", "作曲": "鄧文傑", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "傲氣比天高", "演唱者": "陳曉東", "專輯": "U R My Only Love", "年份": 1998, "語言": "粵語", "填詞": "向雪懷", "作曲": "唐奕聰", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "浪向東", "演唱者": "陳曉東", "專輯": "U R My Only Love", "年份": 1998, "語言": "粵語", "填詞": "向雪懷", "作曲": "浪的心", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "感覺瞬間", "演唱者": "陳曉東", "專輯": "精選集", "年份": 1998, "語言": "粵語", "填詞": "陳曉東", "作曲": "黃尚偉", "編曲": "黃尚偉", "監製": "黃尚偉", "備註": "第一主打；新歌"}, {"歌曲名稱": "多出一世紀", "演唱者": "陳曉東", "專輯": "精選集", "年份": 1998, "語言": "粵語", "填詞": "陳少琪", "作曲": "Collins Medina", "編曲": "Roel A.Garcia", "監製": "陳永明", "備註": "第二主打；新歌"}, {"歌曲名稱": "非賣品", "演唱者": "陳曉東", "專輯": "精選集", "年份": 1998, "語言": "粵語", "填詞": "陳少琪", "作曲": "劉諾生", "編曲": "劉諾生", "監製": "楊振龍", "備註": "第三主打；陳慧琳合唱；新歌"}, {"歌曲名稱": "只有知心一個", "演唱者": "陳曉東", "專輯": "精選集", "年份": 1998, "語言": "粵語", "填詞": "黃霑", "作曲": "黃霑", "編曲": "Mike Jones", "監製": "陳永明", "備註": "原唱者為譚詠麟；新歌"}, {"歌曲名稱": "這就是生活 (C'est la Vie)", "演唱者": "陳曉東", "專輯": "質感", "年份": 1999, "語言": "粵語", "填詞": "周耀輝", "作曲": "鄭中基", "編曲": "方樹樑、鍾世英", "監製": "方樹樑、鄭中基", "備註": "第二主打"}, {"歌曲名稱": "簡約主義", "演唱者": "陳曉東", "專輯": "質感", "年份": 1999, "語言": "粵語", "填詞": "梁芷珊", "作曲": "方樹樑", "編曲": "方樹樑、鍾世英", "監製": "方樹樑", "備註": "第一主打"}, {"歌曲名稱": "月光浴", "演唱者": "陳曉東", "專輯": "質感", "年份": 1999, "語言": "粵語", "填詞": "陳少琪", "作曲": "柳重言", "編曲": "柳重言", "監製": "張佳添", "備註": "第三主打"}, {"歌曲名稱": "質感", "演唱者": "陳曉東", "專輯": "質感", "年份": 1999, "語言": "粵語", "填詞": "陳少琪", "作曲": "Peter Broman", "編曲": "龐維濱", "監製": "葉廣權", "備註": ""}, {"歌曲名稱": "禮物", "演唱者": "陳曉東", "專輯": "質感", "年份": 1999, "語言": "粵語", "填詞": "林夕", "作曲": "張佳添", "編曲": "張佳添", "監製": "張佳添", "備註": ""}, {"歌曲名稱": "信到不相信", "演唱者": "陳曉東", "專輯": "質感", "年份": 1999, "語言": "粵語", "填詞": "周耀輝", "作曲": "蔡一智", "編曲": "鍾國仁、李端嫻", "監製": "蔡一智", "備註": ""}, {"歌曲名稱": "失陪", "演唱者": "陳曉東", "專輯": "質感", "年份": 1999, "語言": "粵語", "填詞": "周耀輝", "作曲": "方樹樑", "編曲": "方樹樑", "監製": "方樹樑、鍾世英", "備註": ""}, {"歌曲名稱": "抱擁空氣", "演唱者": "陳曉東", "專輯": "質感", "年份": 1999, "語言": "粵語", "填詞": "黃敬佩", "作曲": "張佳添", "編曲": "張佳添", "監製": "張佳添", "備註": ""}, {"歌曲名稱": "東芝月色", "演唱者": "陳曉東", "專輯": "質感", "年份": 1999, "語言": "粵語", "填詞": "陳少琪、梁芷珊", "作曲": "柳重言、方樹樑", "編曲": "方樹樑、柳重言、鍾世英", "監製": "方樹樑", "備註": "與張柏芝合作；劇場版"}, {"歌曲名稱": "愛情陷阱", "演唱者": "陳曉東", "專輯": "質感", "年份": 1999, "語言": "粵語", "填詞": "潘源良", "作曲": "芹澤廣明", "編曲": "鍾世英、方樹樑", "監製": "方樹樑", "備註": "原唱者為譚詠麟"}, {"歌曲名稱": "從心愛你", "演唱者": "陳曉東", "專輯": "質感", "年份": 1999, "語言": "粵語", "填詞": "陳少琪", "作曲": "方樹樑", "編曲": "方樹樑", "監製": "方樹樑", "備註": ""}, {"歌曲名稱": "特務 (Remix)", "演唱者": "陳曉東", "專輯": "質感", "年份": 1999, "語言": "粵語", "填詞": "陳少琪", "作曲": "方樹樑", "編曲": "方樹樑", "監製": "方樹樑", "備註": "另有國語版"}, {"歌曲名稱": "借借你肩膀", "演唱者": "陳曉東", "專輯": "Modern Age", "年份": 2000, "語言": "粵語", "填詞": "林夕", "作曲": "雷頌德", "編曲": "雷頌德", "監製": "雷頌德", "備註": "電影《百分百感覺2》主題曲"}, {"歌曲名稱": "泡沫", "演唱者": "陳曉東", "專輯": "Modern Age", "年份": 2000, "語言": "粵語", "填詞": "林夕", "作曲": "伍樂城", "編曲": "伍樂城", "監製": "伍樂城", "備註": ""}, {"歌曲名稱": "另一半", "演唱者": "陳曉東", "專輯": "Modern Age", "年份": 2000, "語言": "粵語", "填詞": "小林", "作曲": "吳國敬", "編曲": "吳國敬、孫偉明", "監製": "吳國敬", "備註": "原唱者為陳百強"}, {"歌曲名稱": "你是一幅畫", "演唱者": "陳曉東", "專輯": "Modern Age", "年份": 2000, "語言": "粵語", "填詞": "黃偉文", "作曲": "蔡一智", "編曲": "蔡一智", "監製": "蔡一智", "備註": ""}, {"歌曲名稱": "什麼都會變", "演唱者": "陳曉東", "專輯": "Modern Age", "年份": 2000, "語言": "粵語", "填詞": "林夕", "作曲": "伍樂城", "編曲": "伍樂城", "監製": "伍樂城", "備註": ""}, {"歌曲名稱": "生命,你好！", "演唱者": "陳曉東", "專輯": "Modern Age", "年份": 2000, "語言": "粵語", "填詞": "林振強", "作曲": "陳輝陽", "編曲": "陳輝陽", "監製": "陳輝陽", "備註": ""}, {"歌曲名稱": "黑色領帶", "演唱者": "陳曉東", "專輯": "黑色領帶", "年份": 2000, "語言": "粵語", "填詞": "李敏", "作曲": "黃貫中", "編曲": "黃貫中", "監製": "黃貫中", "備註": ""}, {"歌曲名稱": "明天", "演唱者": "陳曉東", "專輯": "黑色領帶", "年份": 2000, "語言": "粵語", "填詞": "潘源良", "作曲": "Joey Monteverde", "編曲": "吳慶隆", "監製": "歐丁玉", "備註": ""}, {"歌曲名稱": "冰箱", "演唱者": "陳曉東", "專輯": "黑色領帶", "年份": 2000, "語言": "粵語", "填詞": "周禮茂", "作曲": "Alex San", "編曲": "Alex San", "監製": "Alex San", "備註": ""}, {"歌曲名稱": "激素", "演唱者": "陳曉東", "專輯": "黑色領帶", "年份": 2000, "語言": "粵語", "填詞": "林夕", "作曲": "潘協慶", "編曲": "方樹樑", "監製": "方樹樑", "備註": ""}, {"歌曲名稱": "不必說感謝", "演唱者": "陳曉東", "專輯": "不必說感謝", "年份": 2001, "語言": "粵語", "填詞": "林夕", "作曲": "F. Moettini", "編曲": "劉諾生", "監製": "葉廣權", "備註": "另有國語版"}, {"歌曲名稱": "病人", "演唱者": "陳曉東", "專輯": "不必說感謝", "年份": 2001, "語言": "粵語", "填詞": "林夕", "作曲": "伍樂城、陳曉東", "編曲": "伍樂城", "監製": "伍樂城", "備註": "電影《百分百感覺2》主題曲"}, {"歌曲名稱": "床單", "演唱者": "陳曉東", "專輯": "不必說感謝", "年份": 2001, "語言": "粵語", "填詞": "馮穎琪", "作曲": "Alex San", "編曲": "Alex San", "監製": "Alex San", "備註": ""}, {"歌曲名稱": "脈搏奔流", "演唱者": "陳曉東", "專輯": "不必說感謝", "年份": 2001, "語言": "粵語", "填詞": "卡龍", "作曲": "Ken Tobias", "編曲": "劉諾生", "監製": "葉廣權", "備註": "原唱者為陳百強"}, {"歌曲名稱": "擋不住我的心", "演唱者": "陳曉東", "專輯": "不必說感謝", "年份": 2001, "語言": "粵語", "填詞": "于光中", "作曲": "陳偉", "編曲": "陳偉", "監製": "陳偉", "備註": ""}, {"歌曲名稱": "笑着說再會", "演唱者": "陳曉東", "專輯": "不必說感謝", "年份": 2001, "語言": "粵語", "填詞": "林夕", "作曲": "董修銘", "編曲": "屠穎", "監製": "林明陽", "備註": ""}, {"歌曲名稱": "自由港", "演唱者": "陳曉東", "專輯": "不必說感謝", "年份": 2001, "語言": "粵語", "填詞": "梁芒、曹陽", "作曲": "陳羽凡", "編曲": "陳羽凡", "監製": "Eric Kwok", "備註": "《百分百感覺》電視劇主題曲"}, {"歌曲名稱": "我要的只是愛", "演唱者": "陳曉東", "專輯": "不必說感謝", "年份": 2001, "語言": "粵語", "填詞": "林夕", "作曲": "Yun Il Sang", "編曲": "陳飛午", "監製": "薛忠銘", "備註": ""}, {"歌曲名稱": "你讓我感覺這才是愛情", "演唱者": "陳曉東", "專輯": "不必說感謝", "年份": 2001, "語言": "粵語", "填詞": "李焯雄", "作曲": "陳達偉", "編曲": "陳飛午", "監製": "薛忠銘", "備註": ""}, {"歌曲名稱": "再愛", "演唱者": "陳曉東", "專輯": "不必說感謝", "年份": 2001, "語言": "粵語", "填詞": "孫維君", "作曲": "河村隆一", "編曲": "黃中岳", "監製": "林明陽", "備註": "原曲為河村隆一《Ne》"}, {"歌曲名稱": "愛要怎麼說", "演唱者": "陳曉東", "專輯": "不必說感謝", "年份": 2001, "語言": "粵語", "填詞": "林夕", "作曲": "Nick Vincent、Bob Mair", "編曲": "劉諾生", "監製": "葉廣權", "備註": "新歌"}, {"歌曲名稱": "I Want To Be", "演唱者": "陳曉東", "專輯": "I Want To Be", "年份": 2002, "語言": "粵語", "填詞": "林夕", "作曲": "陳曉東", "編曲": "", "監製": "", "備註": "精選集新歌"}, {"歌曲名稱": "彼此彼此", "演唱者": "陳曉東", "專輯": "I Want To Be", "年份": 2002, "語言": "粵語", "填詞": "陳曉東/陳少琪", "作曲": "Dickell/Martin", "編曲": "", "監製": "", "備註": "精選集新歌"}, {"歌曲名稱": "娛樂無窮", "演唱者": "陳曉東", "專輯": "從未忘記", "年份": 2002, "語言": "粵語", "填詞": "林夕", "作曲": "張亞東", "編曲": "張亞東", "監製": "張亞東、葉廣權", "備註": ""}, {"歌曲名稱": "去街", "演唱者": "陳曉東", "專輯": "從未忘記", "年份": 2002, "語言": "粵語", "填詞": "林夕", "作曲": "張亞東", "編曲": "張亞東", "監製": "張亞東", "備註": ""}, {"歌曲名稱": "迷你", "演唱者": "陳曉東", "專輯": "從未忘記", "年份": 2002, "語言": "粵語", "填詞": "林夕", "作曲": "張亞東", "編曲": "張亞東", "監製": "張亞東", "備註": ""}, {"歌曲名稱": "劃火柴", "演唱者": "陳曉東", "專輯": "從未忘記", "年份": 2002, "語言": "粵語", "填詞": "黃仲凱、芝See菇Bi", "作曲": "陳曉東", "編曲": "Eric Kwok", "監製": "Eric Kwok", "備註": "《百分百感覺》電視劇主題曲"}, {"歌曲名稱": "借歪", "演唱者": "陳曉東", "專輯": "從未忘記", "年份": 2002, "語言": "粵語", "填詞": "陳曉東", "作曲": "Jens Frisch", "編曲": "劉志遠", "監製": "葉廣權", "備註": ""}, {"歌曲名稱": "無人城市", "演唱者": "陳曉東", "專輯": "從未忘記", "年份": 2002, "語言": "粵語", "填詞": "黃偉文", "作曲": "Eric Kwok", "編曲": "Eric Kwok", "監製": "Eric Kwok", "備註": ""}, {"歌曲名稱": "武林中人", "演唱者": "陳曉東", "專輯": "從未忘記", "年份": 2002, "語言": "粵語", "填詞": "林夕", "作曲": "謝杰、呂為光", "編曲": "Josef \"Kooki\" Tse", "監製": "John Tang、Joseph Tse", "備註": ""}, {"歌曲名稱": "你那邊幾點？", "演唱者": "陳曉東", "專輯": "從未忘記", "年份": 2002, "語言": "粵語", "填詞": "林若寧", "作曲": "Kim Hyung Suk、Yang Jae Sun", "編曲": "劉諾生", "監製": "葉廣權", "備註": ""}, {"歌曲名稱": "淡然一週", "演唱者": "陳曉東", "專輯": "從未忘記", "年份": 2002, "語言": "粵語", "填詞": "黃偉文", "作曲": "C. Y. Kong", "編曲": "C. Y. Kong", "監製": "張亞東", "備註": ""}, {"歌曲名稱": "易來易碎", "演唱者": "陳曉東", "專輯": "Love Moments", "年份": 2007, "語言": "粵語", "填詞": "abe", "作曲": "abe", "編曲": "", "監製": "", "備註": "新歌"}, {"歌曲名稱": "無愁無怨", "演唱者": "陳曉東", "專輯": "Love Moments", "年份": 2007, "語言": "粵語", "填詞": "林夕", "作曲": "周初晨", "編曲": "", "監製": "", "備註": "新歌"}, {"歌曲名稱": "唇彩", "演唱者": "陳曉東", "專輯": "Love Moments", "年份": 2007, "語言": "粵語", "填詞": "文恩澄", "作曲": "日云@SENSE", "編曲": "", "監製": "趙增熹", "備註": "新歌"}, {"歌曲名稱": "自白書", "演唱者": "陳曉東", "專輯": "Love Moments", "年份": 2007, "語言": "粵語", "填詞": "林夕", "作曲": "雷頌德", "編曲": "", "監製": "", "備註": "新歌"}, {"歌曲名稱": "時間做證", "演唱者": "陳曉東", "專輯": "單曲", "年份": 2017, "語言": "粵語", "填詞": "林若寧", "作曲": "澤日生", "編曲": "蘇道哲", "監製": "", "備註": ""}, {"歌曲名稱": "亂了星座", "演唱者": "陳曉東", "專輯": "單曲", "年份": 2017, "語言": "粵語", "填詞": "林若寧", "作曲": "澤日生", "編曲": "Kelly.C aka 橋韜", "監製": "澤日生/賴映彤/劉子睦", "備註": ""}, {"歌曲名稱": "這種年紀", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2022, "語言": "粵語", "填詞": "陳詠謙", "作曲": "伍仲衡", "編曲": "伍仲衡", "監製": "伍仲衡", "備註": ""}, {"歌曲名稱": "燒光了火柴", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2023, "語言": "粵語", "填詞": "甄敏延", "作曲": "徐浩", "編曲": "徐浩/黃兆銘", "監製": "徐浩", "備註": ""}, {"歌曲名稱": "專注", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2023, "語言": "粵語", "填詞": "周耀輝", "作曲": "Greg Gonzalez", "編曲": "謝國維", "監製": "伍仲衡", "備註": ""}, {"歌曲名稱": "蒼鷹與少年", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2024, "語言": "粵語", "填詞": "SHU（羅錕）", "作曲": "王遠杰", "編曲": "張贏", "監製": "顧蕭予", "備註": ""}, {"歌曲名稱": "今天我們都會飛", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2026, "語言": "粵語", "填詞": "Oscar", "作曲": "小柒", "編曲": "侯怡強", "監製": "陳曉東", "備註": ""}, {"歌曲名稱": "Neon Regrets", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2026, "語言": "粵語", "填詞": "Jamaster A", "作曲": "Jamaster A", "編曲": "Jamaster A", "監製": "Jamaster A", "備註": ""}, {"歌曲名稱": "如何埋葬宇宙的一抹塵", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2026, "語言": "粵語", "填詞": "周耀輝", "作曲": "小柒", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "海選", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2026, "語言": "粵語", "填詞": "林若寧", "作曲": "John Laudon", "編曲": "John Laudon", "監製": "", "備註": ""}, {"歌曲名稱": "致我們 消失的超能力", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2026, "語言": "粵語", "填詞": "黃偉文", "作曲": "楊振龍 (Jamaster A)", "編曲": "楊振龍 (Jamaster A)", "監製": "楊振龍 (Jamaster A)、陳曉東", "備註": ""}, {"歌曲名稱": "那又怎", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2026, "語言": "粵語", "填詞": "永夏", "作曲": "永夏", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "講完", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2026, "語言": "粵語", "填詞": "OSCAR", "作曲": "永夏", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "講和", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2026, "語言": "粵語", "填詞": "米嘉玉", "作曲": "董家輝", "編曲": "", "監製": "", "備註": ""}, {"歌曲名稱": "大細路", "演唱者": "陳曉東", "專輯": "Neon Reflections", "年份": 2026, "語言": "粵語", "填詞": "林若寧", "作曲": "陳天翱", "編曲": "褚鎮東", "監製": "伍仲衡", "備註": ""}];
+
+const {useState,useMemo,useCallback,useRef,useEffect}=React;
+const e=React.createElement;
+
+function parseNames(str){
+  if(!str)return[];
+  return str.split(/[、\/,，]/).map(s=>s.trim()).filter(Boolean).map(canonName);
+}
+
+function buildRoleIndex(data,field){
+  const map={};
+  data.forEach(song=>{
+    parseNames(song[field]).forEach(name=>{
+      if(!map[name])map[name]={name,count:0,songs:[]};
+      map[name].count++;
+      map[name].songs.push(song);
+    });
+  });
+  return Object.values(map).sort((a,b)=>b.count-a.count);
+}
+
+function buildAlbumGroups(data){
+  const map={};
+  data.forEach(song=>{
+    const k=song.專輯;
+    if(!map[k])map[k]={album:song.專輯,minYear:song.年份,maxYear:song.年份,songs:[]};
+    map[k].songs.push(song);
+    if(song.年份<map[k].minYear)map[k].minYear=song.年份;
+    if(song.年份>map[k].maxYear)map[k].maxYear=song.年份;
+  });
+  return Object.values(map)
+    .map(g=>({...g,yearLabel:g.minYear===g.maxYear?String(g.minYear):g.minYear+'–'+g.maxYear}))
+    .sort((a,b)=>b.maxYear-a.maxYear||b.minYear-a.minYear);
+}
+
+const ROLE_LABELS={lyrics:'填詞',compose:'作曲',arrange:'編曲',produce:'監製'};
+
+function RoleTag({roleKey,count,small}){
+  const cls=small?'role-tag-sm':'role-tag';
+  const label=ROLE_LABELS[roleKey]+(count!=null?' ×'+count:'');
+  return e('span',{className:cls+' '+roleKey},label);
+}
+
+function CreditRow({label,value,onNameClick}){
+  if(!value)return null;
+  const names=parseNames(value);
+  const parts=names.map((n,i)=>[
+    e('span',{key:i,className:'credit-name-link',onClick:ev=>{ev.stopPropagation();onNameClick(n);}},n),
+    i<names.length-1?'、':''
+  ]).flat();
+  return e('div',{className:'credit-row'},
+    e('span',{className:'credit-label'},label),
+    e('span',{className:'credit-value'},...parts)
+  );
+}
+
+function SongDetail({song,onNameClick}){
+  return e('div',{className:'song-detail-inner'},
+    e(CreditRow,{label:'詞',value:song.填詞,onNameClick}),
+    e(CreditRow,{label:'曲',value:song.作曲,onNameClick}),
+    e(CreditRow,{label:'編',value:song.編曲,onNameClick}),
+    e(CreditRow,{label:'監',value:song.監製,onNameClick}),
+    song.備註?e('div',{className:'song-note'},song.備註):null
+  );
+}
+
+function SongItem({song,onNameClick}){
+  const[open,setOpen]=useState(false);
+  return e('div',{className:'song-item'},
+    e('div',{className:'song-header',onClick:()=>setOpen(!open)},
+      e('span',{className:'song-name'},song.歌曲名稱),
+      song.備註&&song.備註.includes('主打')?
+        e('span',{className:'song-badge'},(song.備註.match(/(第.主打)/)||['','主打'])[1]||'主打'):null,
+      e('span',{className:'song-chevron'+(open?' open':'')}, '▸')
+    ),
+    e('div',{className:'song-detail'+(open?' open':'')},
+      open?e(SongDetail,{song,onNameClick}):null
+    )
+  );
+}
+
+function AlbumGroup({group,onNameClick,forceOpen}){
+  const[open,setOpen]=useState(forceOpen||false);
+  useEffect(()=>{if(forceOpen)setOpen(true)},[forceOpen]);
+  return e('div',{className:'album-group'},
+    e('div',{className:'album-header',onClick:()=>setOpen(!open)},
+      e('span',{className:'album-year'},group.yearLabel),
+      e('span',{className:'album-name'},group.album),
+      e('span',{className:'album-count'},group.songs.length+'首'),
+      e('span',{className:'album-chevron'+(open?' open':'')}, '▸')
+    ),
+    e('div',{className:'album-songs'+(open?' open':'')},
+      open?e('div',{className:'album-songs-inner'},
+        group.songs.map((s,i)=>e(SongItem,{key:i,song:s,onNameClick}))
+      ):null
+    )
+  );
+}
+
+function AlbumView({albums,onNameClick,searchQ}){
+  if(searchQ){
+    const filtered=albums.map(g=>({
+      ...g,songs:g.songs.filter(s=>fuzzyMatch(s.歌曲名稱,searchQ))
+    })).filter(g=>g.songs.length>0);
+    if(!filtered.length)return e('div',{className:'empty-state'},'沒有找到相關歌曲');
+    return e('div',null,filtered.map((g,i)=>e(AlbumGroup,{key:i,group:g,onNameClick,forceOpen:true})));
+  }
+  return e('div',null,albums.map((g,i)=>e(AlbumGroup,{key:i,group:g,onNameClick})));
+}
+
+function PersonSongEntry({song,roles,onNameClick}){
+  const[open,setOpen]=useState(false);
+  return e('div',{className:'person-song-entry'},
+    e('div',{className:'pse-header',onClick:()=>setOpen(!open)},
+      e('span',{className:'pse-title'},song.歌曲名稱),
+      e('span',{style:{display:'inline-flex',gap:4,marginLeft:4}},
+        [...new Set(roles)].map(r=>e('span',{key:r,className:'role-tag-sm '+r},ROLE_LABELS[r]))
+      ),
+      e('span',{className:'pse-chevron'+(open?' open':'')}, '▸')
+    ),
+    e('div',{className:'pse-detail'+(open?' open':'')},
+      open?e('div',{className:'pse-detail-inner'},e(SongDetail,{song,onNameClick})):null
+    )
+  );
+}
+
+function PersonList({persons,onSelect,searchQ,sortBy,onSortChange,roleKey}){
+  let list=persons;
+  if(searchQ) list=persons.filter(p=>fuzzyMatch(p.name,searchQ));
+  if(sortBy==='alpha') list=[...list].sort((a,b)=>a.name.localeCompare(b.name,'zh-Hant'));
+  if(!list.length)return e('div',{className:'empty-state'},'沒有找到相關人名');
+  return e('div',null,
+    e('div',{className:'sort-toggle'},
+      e('button',{className:'sort-btn'+(sortBy==='count'?' active':''),onClick:()=>onSortChange('count')},'按作品數'),
+      e('button',{className:'sort-btn'+(sortBy==='alpha'?' active':''),onClick:()=>onSortChange('alpha')},'按名稱')
+    ),
+    e('div',null,
+      list.map((p,i)=>e('div',{key:i,className:'person-item',onClick:()=>onSelect(p)},
+        e('div',{className:'person-name'},p.name),
+        e('div',{className:'person-roles'},e(RoleTag,{roleKey,count:p.count}))
+      ))
+    )
+  );
+}
+
+function PersonDetailPage({person,onBack,onNameClick,roleKey}){
+  const albumMap={};
+  person.songs.forEach(song=>{
+    const k=song.專輯;
+    if(!albumMap[k])albumMap[k]={label:song.專輯,year:song.年份,maxYear:song.年份,songs:new Map()};
+    if(song.年份>albumMap[k].maxYear)albumMap[k].maxYear=song.年份;
+    if(song.年份<albumMap[k].year)albumMap[k].year=song.年份;
+    const existing=albumMap[k].songs.get(song.歌曲名稱);
+    if(existing){if(!existing.roles.includes(roleKey))existing.roles.push(roleKey);}
+    else albumMap[k].songs.set(song.歌曲名稱,{song,roles:[roleKey]});
+  });
+  const albumGroups=Object.values(albumMap).sort((a,b)=>b.maxYear-a.maxYear);
+  return e('div',null,
+    e('button',{className:'person-back',onClick:onBack},'‹ 返回'),
+    e('div',{className:'person-detail-name'},person.name),
+    e('div',{className:'person-detail-stats'},e(RoleTag,{roleKey,count:person.count})),
+    albumGroups.map((ag,i)=>{
+      const yl=ag.year===ag.maxYear?String(ag.year):ag.year+'–'+ag.maxYear;
+      return e('div',{key:i,className:'person-song-group'},
+        e('div',{className:'person-song-group-title'},ag.label+' ('+yl+')'),
+        Array.from(ag.songs.values()).map((entry,j)=>
+          e(PersonSongEntry,{key:j,song:entry.song,roles:entry.roles,onNameClick})
+        )
+      );
+    })
+  );
+}
+
+// Cross query: expandable result item
+function CrossResultItem({song,onNameClick}){
+  const[open,setOpen]=useState(false);
+  return e('div',{className:'cross-result-item',onClick:()=>setOpen(!open)},
+    e('div',{style:{display:'flex',alignItems:'center',gap:6}},
+      e('span',{className:'cross-song-name',style:{flex:1}},song.歌曲名稱),
+      e('span',{className:'pse-chevron'+(open?' open':'')}, '▸')
+    ),
+    e('div',{className:'cross-song-album'},song.專輯+' ('+song.年份+')'),
+    e('div',{className:'cross-detail'+(open?' open':'')},
+      open?e('div',{style:{paddingTop:6}},e(SongDetail,{song,onNameClick})):null
+    )
+  );
+}
+
+function ChipPool({persons,selected,onSelect,selClass}){
+  const main=persons.filter(p=>p.count>1);
+  const others=persons.filter(p=>p.count===1);
+  const[showOthers,setShowOthers]=useState(false);
+  // If selected person is in "others", force show
+  const forceShow=others.some(p=>p.name===selected);
+  const othersVisible=showOthers||forceShow;
+  return e('div',{className:'chip-pool'},
+    main.map(p=>e('button',{
+      key:p.name,
+      className:'chip'+(selected===p.name?' '+selClass:''),
+      onClick:()=>onSelect(selected===p.name?'':p.name)
+    },p.name,e('span',{className:'chip-count'},p.count))),
+    others.length>0?e('button',{
+      key:'__others',
+      className:'chip chip-others'+(othersVisible?' chip-others-open':''),
+      onClick:()=>setShowOthers(!showOthers)
+    },'其他',e('span',{className:'chip-count'},others.length)):null,
+    othersVisible?others.map(p=>e('button',{
+      key:p.name,
+      className:'chip'+(selected===p.name?' '+selClass:''),
+      onClick:()=>onSelect(selected===p.name?'':p.name)
+    },p.name)):null
+  );
+}
+
+function CrossQueryView({data,lyricists,composers,onNameClick}){
+  const[selLyricist,setSelLyricist]=useState('');
+  const[selComposer,setSelComposer]=useState('');
+
+  const results=useMemo(()=>{
+    if(!selLyricist&&!selComposer)return null;
+    return data.filter(song=>{
+      const lOk=!selLyricist||parseNames(song.填詞).includes(selLyricist);
+      const cOk=!selComposer||parseNames(song.作曲).includes(selComposer);
+      return lOk&&cOk;
+    });
+  },[selLyricist,selComposer,data]);
+
+  return e('div',null,
+    e('div',{className:'cross-section'},
+      e('div',{className:'cross-label'},'填詞',
+        selLyricist?e('span',{className:'cross-label-sel'},' · '+selLyricist):null
+      ),
+      e(ChipPool,{persons:lyricists,selected:selLyricist,onSelect:setSelLyricist,selClass:'sel-lyrics'})
+    ),
+    e('div',{className:'cross-section'},
+      e('div',{className:'cross-label'},'作曲',
+        selComposer?e('span',{className:'cross-label-sel'},' · '+selComposer):null
+      ),
+      e(ChipPool,{persons:composers,selected:selComposer,onSelect:setSelComposer,selClass:'sel-compose'})
+    ),
+    e('div',{className:'cross-divider'}),
+    results===null?
+      e('div',{className:'cross-hint'},'點選填詞人和／或作曲人查看合作作品'):
+      results.length===0?
+        e('div',{className:'empty-state'},'沒有找到符合條件的作品'):
+        e('div',null,
+          e('div',{className:'cross-results-header'},
+            (selLyricist&&selComposer?selLyricist+' × '+selComposer:selLyricist||selComposer)+' · '+results.length+' 首'
+          ),
+          results.map((song,i)=>e(CrossResultItem,{key:i,song,onNameClick}))
+        )
+  );
+}
+
+function SearchResults({data,query,onNameClick}){
+  if(!query)return null;
+  const songResults=data.filter(s=>fuzzyMatch(s.歌曲名稱,query)||fuzzyMatch(s.備註,query));
+  const creditResults=data.filter(s=>
+    !songResults.includes(s)&&(
+      fuzzyMatch(s.填詞,query)||fuzzyMatch(s.作曲,query)||
+      fuzzyMatch(s.編曲,query)||fuzzyMatch(s.監製,query)
+    )
+  );
+  const all=[...songResults,...creditResults];
+  if(!all.length)return e('div',{className:'empty-state'},'沒有找到「'+query+'」的結果');
+  return e('div',null,
+    e('div',{className:'search-results-label'},'找到 '+all.length+' 個結果'),
+    all.map((song,i)=>e('div',{key:i,className:'search-song-item'},
+      e('div',{className:'search-song-name'},song.歌曲名稱),
+      e('div',{className:'search-song-album'},song.專輯+' ('+song.年份+')'),
+      e(SongDetail,{song,onNameClick})
+    ))
+  );
+}
+
+function App(){
+  const[tab,setTab]=useState('album');
+  const[search,setSearch]=useState('');
+  const[selectedPerson,setSelectedPerson]=useState(null);
+  const[personSort,setPersonSort]=useState('count');
+
+  const albums=useMemo(()=>buildAlbumGroups(DATA),[]);
+  const lyricists=useMemo(()=>buildRoleIndex(DATA,'填詞'),[]);
+  const composers=useMemo(()=>buildRoleIndex(DATA,'作曲'),[]);
+
+  const lyricistMap=useMemo(()=>{const m={};lyricists.forEach(p=>m[p.name]=p);return m},[lyricists]);
+  const composerMap=useMemo(()=>{const m={};composers.forEach(p=>m[p.name]=p);return m},[composers]);
+
+  const handleNameClick=useCallback(name=>{
+    const cn=canonName(name);
+    if(lyricistMap[cn]){setSelectedPerson(lyricistMap[cn]);setTab('lyrics');setSearch('');window.scrollTo(0,0);}
+    else if(composerMap[cn]){setSelectedPerson(composerMap[cn]);setTab('compose');setSearch('');window.scrollTo(0,0);}
+  },[lyricistMap,composerMap]);
+
+  const isSearching=search.length>0;
+  const roleKeyForTab=tab==='lyrics'?'lyrics':'compose';
+
+  const header=e('div',{className:'header'},
+    e('div',{className:'header-title'},'劃火柴',
+      e('div',{className:'header-subtitle'},'128 首 · 1995–2026')
+    ),
+    e('div',{className:'search-wrap'},
+      e('span',{className:'search-icon'},'🔍'),
+      e('input',{className:'search-input',placeholder:'搜索歌名、人名…',value:search,
+        onChange:ev=>setSearch(ev.target.value)}),
+      e('button',{className:'search-clear'+(search?' show':''),onClick:()=>setSearch('')},'✕')
+    ),
+    e('div',{className:'tabs'},
+      e('button',{className:'tab'+(tab==='album'?' active':''),onClick:()=>{setTab('album');setSelectedPerson(null)}},'按專輯'),
+      e('button',{className:'tab'+(tab==='lyrics'?' active':''),onClick:()=>{setTab('lyrics');setSelectedPerson(null)}},'按填詞'),
+      e('button',{className:'tab'+(tab==='compose'?' active':''),onClick:()=>{setTab('compose');setSelectedPerson(null)}},'按作曲'),
+      e('button',{className:'tab'+(tab==='cross'?' active':''),onClick:()=>{setTab('cross');setSelectedPerson(null)}},'交叉查詢')
+    )
+  );
+
+  if((tab==='lyrics'||tab==='compose')&&selectedPerson&&!isSearching){
+    return e('div',null,header,
+      e('div',{className:'content'},
+        e(PersonDetailPage,{person:selectedPerson,onBack:()=>setSelectedPerson(null),onNameClick:handleNameClick,roleKey:roleKeyForTab})
+      )
+    );
+  }
+
+  let content;
+  if(isSearching){
+    content=e(SearchResults,{data:DATA,query:search,onNameClick:handleNameClick});
+  }else if(tab==='album'){
+    content=e(AlbumView,{albums,onNameClick:handleNameClick,searchQ:''});
+  }else if(tab==='lyrics'){
+    content=e(PersonList,{persons:lyricists,onSelect:setSelectedPerson,searchQ:'',sortBy:personSort,onSortChange:setPersonSort,roleKey:'lyrics'});
+  }else if(tab==='compose'){
+    content=e(PersonList,{persons:composers,onSelect:setSelectedPerson,searchQ:'',sortBy:personSort,onSortChange:setPersonSort,roleKey:'compose'});
+  }else{
+    content=e(CrossQueryView,{data:DATA,lyricists,composers,onNameClick:handleNameClick});
+  }
+
+  return e('div',null,header,e('div',{className:'content'},content));
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(e(App));
+
+</script>
+<script>
+if('serviceWorker' in navigator){
+  const SW_VERSION='v2';
+  navigator.serviceWorker.register('sw.js?v='+SW_VERSION).then(reg=>{
+    reg.addEventListener('updatefound',()=>{
+      const w=reg.installing;
+      if(w) w.addEventListener('statechange',()=>{
+        if(w.state==='activated') location.reload();
+      });
+    });
+  });
+}
+</script>
+</body>
+</html>
