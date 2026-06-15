@@ -488,7 +488,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(e(App));
 </script>
 <script>
 if('serviceWorker' in navigator){
-  const SW_VERSION='v5';
+  const SW_VERSION='v6';
   navigator.serviceWorker.register('sw.js?v='+SW_VERSION).then(reg=>{
     reg.addEventListener('updatefound',()=>{
       const w=reg.installing;

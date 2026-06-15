@@ -1,4 +1,4 @@
-const CACHE_NAME = 'daniel-chan-credits-v5';
+const CACHE_NAME = 'daniel-chan-credits-v6';
 const ASSETS = [
   './',
   './index.html',
